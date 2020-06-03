@@ -16,7 +16,7 @@ app.use(session({
     resave:true
 }));
 
-mongoose.connect('mongodb://localhost:27017/groupCalendars', { useNewUrlParser: true }).then(
+mongoose.connect(process.env.NODE_ENV === 'production'?process.env.DB_URI:'mongodb://localhost:27017/groupCalendars', { useNewUrlParser: true }).then(
     () => console.log('Connected to database!'),
     err => console.error(err));
 

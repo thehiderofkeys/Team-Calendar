@@ -2,7 +2,7 @@ const {google} = require('googleapis')
 import fs from 'fs'
 import { User } from '../db/schema'
 
-const cred = JSON.parse(fs.readFileSync('./credentials.json'))
+const cred = JSON.parse(process.env.NODE_ENV === 'production'? process.env.GOOGLE_CRED:fs.readFileSync('./credentials.json'))
 const authScope = [
     'https://www.googleapis.com/auth/userinfo.profile',
     'https://www.googleapis.com/auth/userinfo.email',
