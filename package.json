@@ -15,6 +15,8 @@
   },
   "devDependencies": {},
   "scripts": {
+    "postinstall": "cd client && npm install",
+    "build": "cd client && npm run-script build",
     "start": "node -r esm server.js",
     "server": "npm run start",
     "prod": "set NODE_ENV=production&& npm run start"
